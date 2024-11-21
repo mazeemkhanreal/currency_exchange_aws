@@ -1,0 +1,15 @@
+[2024-11-18T08:06:03.567+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: currency_exchange_pipeline.currency_exchange_extraction scheduled__2024-11-17T00:00:00+00:00 [queued]>
+[2024-11-18T08:06:03.591+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: currency_exchange_pipeline.currency_exchange_extraction scheduled__2024-11-17T00:00:00+00:00 [queued]>
+[2024-11-18T08:06:03.591+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-11-18T08:06:03.613+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): currency_exchange_extraction> on 2024-11-17 00:00:00+00:00
+[2024-11-18T08:06:03.629+0000] {standard_task_runner.py:57} INFO - Started process 270 to run task
+[2024-11-18T08:06:03.631+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'currency_exchange_pipeline', 'currency_exchange_extraction', 'scheduled__2024-11-17T00:00:00+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/currency_exchange_dag.py', '--cfg-path', '/tmp/tmp30e5iryi']
+[2024-11-18T08:06:03.636+0000] {standard_task_runner.py:85} INFO - Job 17: Subtask currency_exchange_extraction
+[2024-11-18T08:06:03.919+0000] {task_command.py:416} INFO - Running <TaskInstance: currency_exchange_pipeline.currency_exchange_extraction scheduled__2024-11-17T00:00:00+00:00 [running]> on host ca54fda2bb7e
+[2024-11-18T08:06:04.102+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Azeem' AIRFLOW_CTX_DAG_ID='currency_exchange_pipeline' AIRFLOW_CTX_TASK_ID='currency_exchange_extraction' AIRFLOW_CTX_EXECUTION_DATE='2024-11-17T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-17T00:00:00+00:00'
+[2024-11-18T08:06:05.448+0000] {logging_mixin.py:151} INFO - Connected to Exchange Rates API with fallback base (EUR).
+[2024-11-18T08:06:05.492+0000] {logging_mixin.py:151} INFO - Data successfully saved to /opt/airflow/data/output/currency_exchange_20241118.csv
+[2024-11-18T08:06:05.493+0000] {python.py:194} INFO - Done. Returned value was: /opt/airflow/data/output/currency_exchange_20241118.csv
+[2024-11-18T08:06:05.555+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=currency_exchange_pipeline, task_id=currency_exchange_extraction, execution_date=20241117T000000, start_date=20241118T080603, end_date=20241118T080605
+[2024-11-18T08:06:05.610+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-11-18T08:06:05.656+0000] {taskinstance.py:2778} INFO - 1 downstream tasks scheduled from follow-on schedule check

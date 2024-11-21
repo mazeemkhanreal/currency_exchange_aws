@@ -1,0 +1,12 @@
+[2024-11-17T14:31:52.605+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: currency_exchange_pipeline.currency_exchange_extraction manual__2024-11-17T14:31:41.849052+00:00 [queued]>
+[2024-11-17T14:31:52.634+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: currency_exchange_pipeline.currency_exchange_extraction manual__2024-11-17T14:31:41.849052+00:00 [queued]>
+[2024-11-17T14:31:52.636+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-11-17T14:31:52.681+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): currency_exchange_extraction> on 2024-11-17 14:31:41.849052+00:00
+[2024-11-17T14:31:52.694+0000] {standard_task_runner.py:57} INFO - Started process 27 to run task
+[2024-11-17T14:31:52.711+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'currency_exchange_pipeline', 'currency_exchange_extraction', 'manual__2024-11-17T14:31:41.849052+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/currency_exchange_dag.py', '--cfg-path', '/tmp/tmpfng1sm66']
+[2024-11-17T14:31:52.722+0000] {standard_task_runner.py:85} INFO - Job 5: Subtask currency_exchange_extraction
+[2024-11-17T14:31:52.869+0000] {task_command.py:416} INFO - Running <TaskInstance: currency_exchange_pipeline.currency_exchange_extraction manual__2024-11-17T14:31:41.849052+00:00 [running]> on host ca54fda2bb7e
+[2024-11-17T14:31:53.271+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Azeem' AIRFLOW_CTX_DAG_ID='currency_exchange_pipeline' AIRFLOW_CTX_TASK_ID='currency_exchange_extraction' AIRFLOW_CTX_EXECUTION_DATE='2024-11-17T14:31:41.849052+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-17T14:31:41.849052+00:00'
+[2024-11-17T14:31:54.620+0000] {logging_mixin.py:151} INFO - Error fetching exchange rates: 401 Client Error: Unauthorized for url: https://api.exchangeratesapi.io/v1/latest?access_key=3keN1xa6MyYQHpRB6H9PPjo8w7WYJQ
+[2024-11-17T14:31:54.672+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-11-17T14:31:54.820+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check

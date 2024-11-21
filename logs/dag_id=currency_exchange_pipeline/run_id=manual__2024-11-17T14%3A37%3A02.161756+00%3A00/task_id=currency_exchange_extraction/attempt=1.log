@@ -1,0 +1,23 @@
+[2024-11-17T14:37:17.834+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: currency_exchange_pipeline.currency_exchange_extraction manual__2024-11-17T14:37:02.161756+00:00 [queued]>
+[2024-11-17T14:37:17.860+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: currency_exchange_pipeline.currency_exchange_extraction manual__2024-11-17T14:37:02.161756+00:00 [queued]>
+[2024-11-17T14:37:17.861+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2024-11-17T14:37:17.902+0000] {taskinstance.py:1382} INFO - Executing <Task(PythonOperator): currency_exchange_extraction> on 2024-11-17 14:37:02.161756+00:00
+[2024-11-17T14:37:17.918+0000] {standard_task_runner.py:57} INFO - Started process 30 to run task
+[2024-11-17T14:37:17.939+0000] {standard_task_runner.py:84} INFO - Running: ['airflow', 'tasks', 'run', 'currency_exchange_pipeline', 'currency_exchange_extraction', 'manual__2024-11-17T14:37:02.161756+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/currency_exchange_dag.py', '--cfg-path', '/tmp/tmpttzimczs']
+[2024-11-17T14:37:17.946+0000] {standard_task_runner.py:85} INFO - Job 7: Subtask currency_exchange_extraction
+[2024-11-17T14:37:18.140+0000] {task_command.py:416} INFO - Running <TaskInstance: currency_exchange_pipeline.currency_exchange_extraction manual__2024-11-17T14:37:02.161756+00:00 [running]> on host ca54fda2bb7e
+[2024-11-17T14:37:18.416+0000] {taskinstance.py:1662} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Azeem' AIRFLOW_CTX_DAG_ID='currency_exchange_pipeline' AIRFLOW_CTX_TASK_ID='currency_exchange_extraction' AIRFLOW_CTX_EXECUTION_DATE='2024-11-17T14:37:02.161756+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-17T14:37:02.161756+00:00'
+[2024-11-17T14:37:19.384+0000] {logging_mixin.py:151} INFO - Connected to Exchange Rates API with fallback base (EUR).
+[2024-11-17T14:37:19.399+0000] {taskinstance.py:1937} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/pipelines/currency_exchange_pipeline.py", line 14, in currency_exchange_pipeline
+    save_data_to_csv(transformed_data, OUTPUT_PATH=file_path)
+TypeError: save_data_to_csv() got an unexpected keyword argument 'OUTPUT_PATH'
+[2024-11-17T14:37:19.432+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=currency_exchange_pipeline, task_id=currency_exchange_extraction, execution_date=20241117T143702, start_date=20241117T143717, end_date=20241117T143719
+[2024-11-17T14:37:19.451+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 7 for task currency_exchange_extraction (save_data_to_csv() got an unexpected keyword argument 'OUTPUT_PATH'; 30)
+[2024-11-17T14:37:19.497+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-11-17T14:37:19.547+0000] {taskinstance.py:2778} INFO - 0 downstream tasks scheduled from follow-on schedule check
