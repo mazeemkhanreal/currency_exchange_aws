@@ -56,11 +56,11 @@ To run this project locally, you'll need:
 - AWS CLI set up and configured
 
 
+**Architectural Diagram**
 ![AWS Currency exchange](https://github.com/user-attachments/assets/9064b4e6-25be-49e2-ae79-e18357569003)
 
 
-
-Email Alerting based Implementation
+**Email snapshot of the alert**
 ![image](https://github.com/user-attachments/assets/25a01a1b-0639-4a6e-82bf-d77a845d0120)
 
 
