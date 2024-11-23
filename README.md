@@ -55,3 +55,8 @@ To run this project locally, you'll need:
 - AWS account with SES, Glue, Athena, S3, and Redshift access
 - AWS CLI set up and configured
 
+
+![AWS Currency exchange](https://github.com/user-attachments/assets/9064b4e6-25be-49e2-ae79-e18357569003)
+
+
+
