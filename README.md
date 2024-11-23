@@ -8,19 +8,19 @@ The system integrates multiple technologies and services to gather, process, and
 
 - **API**: Fetches real-time exchange rate data.
 - **Docker**: Containerizes the application for easy deployment.
-- **PostgreSQL**: Stores exchange rate data temporarily before processing.
 - **Apache Airflow**: Orchestrates and schedules workflows.
+- **PostgreSQL**: Works as the backend database for Airflow orchestration.
 - **Celery**: Handles asynchronous tasks, like data fetching.
 - **AWS Glue**: Transforms and catalogs data.
 - **S3 Buckets**: Stores raw and transformed data.
 - **AWS Athena**: Queries transformed data.
 - **AWS Redshift**: Data warehousing solution for further analytics.
-- **Looker, Quicksight, Power BI**: Data visualization tools for business insights.
-- **AWS SES**: Sends email notifications based on specific conditions.
+- **Looker, Quicksight, Power BI**: Data visualization tools for business insights dashboards.
+- **AWS SES**: Serve as a gateway to sends email notifications based on specific conditions.
 
 ## Features
 
-- **Real-time data collection**: Fetches currency exchange data from an API.
+- **Scheduled-time data collection**: Fetches currency exchange data from an API on defined interval.
 - **Data transformation**: Transforms raw data using AWS Glue.
 - **Email notifications**: Sends email alerts when specific conditions on currency exchange rates are met.
 - **Data visualization**: Leverages Looker, Quicksight, and Power BI for generating insightful reports.
@@ -30,31 +30,28 @@ The system integrates multiple technologies and services to gather, process, and
 
 1. **Data Ingestion**:
     - The system fetches currency exchange data from an external API.
-    - The data is stored temporarily in a PostgreSQL database.
+    - The data is stored in raw format in S3 bucket with in raw dirctory.
 
 2. **Data Processing & Storage**:
-    - The data is transferred to an S3 bucket for raw storage.
-    - AWS Glue crawls the data, transforming it into a usable format.
-    - Transformed data is saved back to S3 and cataloged.
+    - AWS Glue crawls the data, transforming it into any usable/desirable format.
+    - AWS Glue serves as a fundamental block to send emails when the system detects specific thresholds or conditions related to the currency exchange rates breaches, AWS SES is integrated within the script to do that.
+    - Transformed data is saved back to S3 and cataloged for further use.
+    - Transformed data can be saved to a datalake like AWS Redshift for further analytical purposes.
   
 3. **Data Analysis**:
-    - AWS Athena queries the transformed data.
-    - The data is further processed and loaded into AWS Redshift for advanced analytics.
+    - AWS Athena queries the transformed data via AWS DataCatalog.
+    - Or if the data is loaded into AWS Redshift cluster then we can use any of the visualization tools to further work on building and fulfilling our needs.
 
 4. **Visualization**:
     - Tools like Looker, Quicksight, and Power BI are used to visualize the data.
   
-5. **Email Alerts**:
-    - AWS SES sends an email when the system detects specific thresholds or conditions related to the currency exchange rates.
 
 ## Prerequisites
 
 To run this project locally, you'll need:
 
-- Docker
+- Dockers
 - Python 3.x
-- PostgreSQL
-- Apache Airflow
 - AWS account with SES, Glue, Athena, S3, and Redshift access
 - AWS CLI set up and configured
 
