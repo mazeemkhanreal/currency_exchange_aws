@@ -60,3 +60,8 @@ To run this project locally, you'll need:
 
 
 
+Email Alerting based Implementation
+![image](https://github.com/user-attachments/assets/25a01a1b-0639-4a6e-82bf-d77a845d0120)
+
+
+
